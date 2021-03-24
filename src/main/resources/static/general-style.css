@@ -1,0 +1,17 @@
+#logo_lettering {
+    background: white;
+    color: #d21404;
+    font: normal normal normal 90px/50px Kristen ITC;
+}
+button {
+    height: 8vh;
+    width: 15vw;
+    background: #d21404;
+    color: white;
+    border-radius: 30px;
+    font: normal normal normal 20px/10px Kristen ITC;
+    margin: 0.25em;
+}
+body {
+    margin: 0px;
+}

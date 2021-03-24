@@ -1,0 +1,57 @@
+nav {
+    height: 12vh;
+    width: 100vw;
+    background: #d21404 0% 0% no-repeat padding-box;
+    display: flex;
+}
+a {
+    height: 7vh;
+    width: 20vw;
+    background: #ffffff;
+    color: #d21404;
+    text-decoration: none;
+    line-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+main-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    margin: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+li {
+    width: 18vw;
+    font: normal normal normal 30px/10px Kristen ITC;
+    margin: auto;
+    padding: 0px;
+    background: white;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nav_logo {
+    font: normal normal normal 50px/5px Kristen ITC;
+    background: #d21404;
+    color: white;
+    margin: 0px 30px;
+}
+
+body {
+    margin: 0px;
+}
+

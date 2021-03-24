@@ -1,0 +1,26 @@
+#main-page {
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.photos {
+    width: 25vw;
+    height: 60vh;
+    border: 1px solid black;
+    margin: 0px 5vw;
+    box-shadow: 10px 5px 5px #888888;
+}
+#description {
+    width: 25vw;
+    height: 60vh;
+    border: 1px solid black;
+    padding: 10px;
+    color: #d21404;
+    font: normal normal normal 25px/10px Kristen ITC;
+    display: flex;
+    justify-content: center;
+    box-shadow: 10px 5px 5px #888888;
+}

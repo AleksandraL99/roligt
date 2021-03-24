@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="nav-style.css">
+    <link rel="stylesheet" type="text/css" href="reservations-style.css">
+    <link rel="stylesheet" type="text/css" href="general-style.css">
+    <title>Reservation Page</title>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <ul>
+            <p id="nav_logo">Roligt</p>
+            <li>
+                <a href="main" class="button"><p1>Strona główna</p1></a>
+            </li>
+            <li>
+                <a href="#" class="button">  <p1>Rezerwacje</p1></a>
+            </li>
+            <li>
+                <a href="priceList" class="button"> <p1>Cennik</p1></a>
+            </li>
+            <li>
+                <a href="logout" class="button"><p1>Zaloguj</p1></a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="reservation-page">
+        <div id="title">Zarezerwuj animatora</div>
+        <div id="form">
+            <div id="tips">
+                <p2>Data </p2>
+                <p2>Godzina </p2>
+                <p2>Miejsce </p2>
+                <p2>Liczba dzieci </p2>
+            </div>
+            <div id="information">
+                <input name="date" type="text" placeholder="DD.MM.YYY">
+                <input name="hour" type="text" placeholder="GG:MM">
+                <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu">
+                <input name="children" type="text" placeholder="1-20">
+            </div>
+        </div>
+        <a href="reservations"><button type="button">Zapisz</button></a>
+    </div>
+
+</div>
+</body>
+</html>

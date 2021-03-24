@@ -1,0 +1,24 @@
+table, tr, td {
+    border: 3px solid #a91304;
+    font: normal normal normal 35px/10px Kristen ITC;
+    color: #d21404;
+}
+table {
+    width: 65vw;
+    height: 50vh;
+}
+#price-list-page {
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+td {
+    padding: 70px;
+}
+#row-1>td {
+    padding: 50px 0px;
+}
