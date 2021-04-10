@@ -1,4 +1,4 @@
-package pl.roligt.roligt;
+package pl.roligt.roligt.databaseFiles;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class UsersTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
 
 
@@ -18,8 +18,8 @@ public class UsersTable {
     private int phone_number;
     private String status;
 
-    public UsersTable(Long id, String email, String password, int phone_number, String status) {
-        this.id = id;
+    public UsersTable(Long user_id, String email, String password, int phone_number, String status) {
+        this.user_id = user_id;
         this.email = email;
         this.password = password;
         this.phone_number = phone_number;
@@ -28,12 +28,12 @@ public class UsersTable {
     public UsersTable() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long id) {
+        this.user_id = id;
     }
 
     public String getEmail() {
@@ -72,6 +72,6 @@ public class UsersTable {
     public String toString() {
         return String.format(
                 "User[id=%d, email='%s', phone_number='%d', status='%s']",
-                id, email, phone_number, status);
+                user_id, email, phone_number, status);
     }
 }
