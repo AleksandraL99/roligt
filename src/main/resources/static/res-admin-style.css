@@ -1,0 +1,32 @@
+table, tr, td {
+    border: 1px solid #000000;
+
+    color: #000000;
+}
+#table-header {
+    font: normal normal normal 20px/10px Kristen ITC;
+}
+.event-info {
+    font: normal normal normal 20px/10px Arial;
+}
+table {
+    width: 86vw;
+}
+.admin-reservation-page{
+    margin: 5vh 7vw;
+    padding: 0px;
+}
+td {
+    height: 7vh;
+    padding: 0px 0.5em;
+}
+.delet_button, button {
+    height: 7vh;
+    width: 5vw;
+    padding: 0px;
+}
+
+button{
+    background: #d21404;
+    border: 0px;
+}

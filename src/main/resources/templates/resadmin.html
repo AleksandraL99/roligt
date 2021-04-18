@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Reservation page for admin</title>
+    <link rel="stylesheet" type="text/css" href="nav-style.css">
+    <link rel="stylesheet" type="text/css" href="res-admin-style.css">
 </head>
 <body>
 <div class="container">
     <nav>
-        <img src="src/resources/img/logo.svg">
+        <p id="nav_logo">Roligt</p>
         <ul>
             <li>
                 <a href="main" class="button"><p1>Strona główna</p1></a>
@@ -26,13 +28,23 @@
 
     <div class="admin-reservation-page">
         <table>
-            <tr>
-                <td>Email</td> <td>Telefon</td> <td>Data</td> <td>Godzina</td>
-                <td>Miejsce</td> <td>Ilość dzieci</td> <button>Usuń</button>
+            <tr id="table-header">
+                <td class="p_email">Email</td>
+                <td class="p_telefon">Telefon</td>
+                <td class="p_data">Data</td>
+                <td class="p_godzina">Godzina</td>
+                <td class="p_miejsce">Miejsce</td>
+                <td class="p_ilosc">Liczba dzieci</td>
+                <td class="delet_button"></td>
             </tr>
-            <tr>
-                <td>anowak@gmail.com</td> <td>123456789</td> <td>23-09-2021</td>
-                <td>13:30</td> <td>Sopot, Kolorowa,48</td> <td>9</td>
+            <tr class="event-info">
+                <td class="p_email"><p th:text="${userEmail}"/></td>
+                <td class="p_telefon"><p th:text="${userPhone}"/></td>
+                <td class="p_data"><p th:text="${eventDate}"/></td>
+                <td class="p_godzina"><p th:text="${eventHour}"/></td>
+                <td class="p_miejsce"><p th:text="${eventPlace}"/></td>
+                <td class="p_ilosc"><p th:text="${numberOfChildren}"/></td>
+                <td class="delet_button"><button>Usuń</button></td>
             </tr>
 
         </table>
