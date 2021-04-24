@@ -1,9 +1,8 @@
-package pl.roligt.roligt.Controllers;
+package pl.roligt.roligt.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import pl.roligt.roligt.databaseFiles.Reservations;
 
 @Controller
 public class resAdminController {

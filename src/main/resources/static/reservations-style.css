@@ -11,7 +11,7 @@
     font: normal normal normal 55px/20px Kristen ITC;
 }
 #form {
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -26,7 +26,7 @@
     width: 40vh;
     color: #d21404;
 }
-input {
+input, select {
     width: 25vw;
     height: 5vh;
     background: white;
@@ -38,5 +38,15 @@ input {
 }
 p2 {
     padding: 30px 10px;
-    font: normal normal normal 40px/20px Kristen ITC;
+    font: normal normal normal 35px/20px Kristen ITC;
 }
+select {
+    height: 8vh;
+    width: 26.5vw;
+}
+p3 {
+    font: normal normal normal 15px/10px Arial;
+    color: black;
+    margin: 1em;
+}
+

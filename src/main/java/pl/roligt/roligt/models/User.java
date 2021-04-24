@@ -1,15 +1,17 @@
-package pl.roligt.roligt.databaseFiles;
+package pl.roligt.roligt.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity
-public class UsersTable {
+@Table(name="users")
+@Entity(name="users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user_id")
+    private List<Reservation> reservations;
 
 
 
@@ -18,14 +20,14 @@ public class UsersTable {
     private int phone_number;
     private String status;
 
-    public UsersTable(Long user_id, String email, String password, int phone_number, String status) {
+    public User(Long user_id, String email, String password, int phone_number, String status) {
         this.user_id = user_id;
         this.email = email;
         this.password = password;
         this.phone_number = phone_number;
         this.status = status;
     }
-    public UsersTable() {
+    public User() {
     }
 
     public Long getUser_id() {

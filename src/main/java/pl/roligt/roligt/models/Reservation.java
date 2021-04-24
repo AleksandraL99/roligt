@@ -1,34 +1,40 @@
-package pl.roligt.roligt.databaseFiles;
+package pl.roligt.roligt.models;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
-@Entity
-public class Reservations {
+@Table(name="reservations")
+@Entity(name="reservations")
+public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reservation_id;
 
-    @ManyToOne
-    //@JoinColumn(name="user_id")
-    private UsersTable user_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="category_id")
+    private Category category_id;
 
 
     private Date date;
     private Time hour;
     private String place;
-    private int children;
 
-    public Reservations() {
+    public Reservation() {
     }
-    public Reservations(Long reservation_id, UsersTable user_id, Date date, Time hour, String place, int children) {
+
+    public Reservation(Long reservation_id, User user_id, Date date, Time hour, String place, Category id_category) {
         this.reservation_id = reservation_id;
         this.user_id = user_id;
         this.date = date;
         this.hour = hour;
         this.place = place;
-        this.children = children;
+        this.category_id = id_category;
     }
 
     public Long getReservation_id() {
@@ -39,11 +45,11 @@ public class Reservations {
         this.reservation_id = reservation_id;
     }
 
-    public UsersTable getUser_id() {
+    public User getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(UsersTable user_id) {
+    public void setUser_id(User user_id) {
         this.user_id = user_id;
     }
 
@@ -71,12 +77,12 @@ public class Reservations {
         this.place = place;
     }
 
-    public int getChildren() {
-        return children;
+    public Category getCategory_id() {
+        return category_id;
     }
 
-    public void setChildren(int children) {
-        this.children = children;
+    public void setCategory_id(Category children) {
+        this.category_id = children;
     }
 
 
