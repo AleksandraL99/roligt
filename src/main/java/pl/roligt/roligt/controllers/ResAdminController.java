@@ -10,12 +10,12 @@ import pl.roligt.roligt.repositories.ReservationsRepo;
 import java.util.List;
 
 @Controller
-public class resAdminController {
+public class ResAdminController {
 
     private ReservationsRepo reservationsRepo;
 
     @Autowired
-    public resAdminController(ReservationsRepo reservationsRepo) {
+    public ResAdminController(ReservationsRepo reservationsRepo) {
         this.reservationsRepo = reservationsRepo;
     }
 

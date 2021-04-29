@@ -17,14 +17,14 @@ public class User {
 
     private String email;
     private String password;
-    private int phone_number;
+    private int phoneNumber;
     private String status;
 
-    public User(Long user_id, String email, String password, int phone_number, String status) {
+    public User(Long user_id, String email, String password, int phoneNumber, String status) {
         this.user_id = user_id;
         this.email = email;
         this.password = password;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.status = status;
     }
     public User() {
@@ -54,12 +54,12 @@ public class User {
         this.password = password;
     }
 
-    public int getPhone_number() {
-        return phone_number;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(int phone_number) {
+        this.phoneNumber = phone_number;
     }
 
     public String getStatus() {
@@ -73,7 +73,7 @@ public class User {
     @Override
     public String toString() {
         return String.format(
-                "User[id=%d, email='%s', phone_number='%d', status='%s']",
-                user_id, email, phone_number, status);
+                "User[id=%d, email='%s', phoneNumber='%d', status='%s']",
+                user_id, email, phoneNumber, status);
     }
 }
