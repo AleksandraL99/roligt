@@ -3,7 +3,7 @@
     color: #d21404;
     font: normal normal normal 90px/50px Kristen ITC;
 }
-button {
+button, #save {
     height: 8vh;
     width: 15vw;
     background: #d21404;

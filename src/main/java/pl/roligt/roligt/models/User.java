@@ -72,8 +72,12 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format(
-                "User[id=%d, email='%s', phoneNumber='%d', status='%s']",
-                user_id, email, phoneNumber, status);
+        return "User{" +
+                "user_id=" + user_id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

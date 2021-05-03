@@ -85,5 +85,13 @@ public class Reservation {
         this.category_id = children;
     }
 
-
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "reservation_id=" + reservation_id +
+                ", date=" + date +
+                ", hour=" + hour +
+                ", place='" + place + '\'' +
+                '}';
+    }
 }

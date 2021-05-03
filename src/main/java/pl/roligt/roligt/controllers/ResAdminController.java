@@ -22,16 +22,19 @@ public class ResAdminController {
 
     @GetMapping("/resadmin")
     public String getResAdmin(Model model) {
-        //Reservations reservation = new Reservations(1,1,2021/11/02, "13:30", "Kraków", 9);
         //wyrzucić z zmiennej zmienn.email np
-        List<Reservation> list = reservationsRepo.findAll();
+        List<Reservation> resList = reservationsRepo.findAll();
         //liste wrzucam gotową, pętla w html
-        model.addAttribute("userEmail","anowak@gmail.com");
+        /*model.addAttribute("userEmail","anowak@gmail.com");
         model.addAttribute("userPhone","987354213");
         model.addAttribute("eventDate","12-06-2021");
         model.addAttribute("eventHour","13:30");
         model.addAttribute("eventPlace","Kraków, Kolorowa,48");
         model.addAttribute("numberOfChildren","12");
+        for (Reservation i: resList) {
+            System.out.println(i+"\n");
+        }*/
+        model.addAttribute("resList", resList);
         return "resadmin";
     }
 }

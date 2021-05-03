@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/nav-style.css">
-    <link rel="stylesheet" type="text/css" href="./css/reservations-style.css">
     <link rel="stylesheet" type="text/css" href="./css/general-style.css">
+    <link rel="stylesheet" type="text/css" href="./css/reservations-style.css">
     <title>Reservation Page</title>
 </head>
 <body>
@@ -38,19 +38,21 @@
                 <p2>Kategoria</p2>
             </div>
             <div id="information">
-                <input name="date" type="text" placeholder="DD.MM.YYY">
-                <input name="hour" type="text" placeholder="GG:MM">
-                <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu">
-                <input name="children" type="text" placeholder="1-20">
-                <select>
-                    <option value="Grupa przedszkolna">Grupa przedszkolna</option>
-                    <option value="Urodziny">Urodziny</option>
-                    <option value="Impreza rodzinna">Impreza rodzinna</option>
-                    <option value="Impreza specjalna">Impreza specjalna*</option>
-                </select>
+                <form th:action="@{/add}" th:object="${newReservation}" method="post">
+                    <input name="date" type="text" placeholder="DD.MM.YYYY" th:field="*{date}">
+                    <input name="hour" type="text" placeholder="GG:MM" th:field="*{hour}">
+                    <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu">
+                    <input name="children" type="text" placeholder="1-20">
+                    <select>
+                        <option value="Grupa przedszkolna">Grupa przedszkolna</option>
+                        <option value="Urodziny">Urodziny</option>
+                        <option value="Impreza rodzinna">Impreza rodzinna</option>
+                        <option value="Impreza specjalna">Impreza specjalna*</option>
+                    </select>
+                    <input id="save" type="submit" value="Save">
+                </form>
             </div>
         </div>
-        <a href="reservations"><button type="button">Zapisz</button></a>
         <p3>*impreza Hallowen, Powitanie Wiosny, Gwiazdkowa, Dzień dziecka</p3>
     </div>
 

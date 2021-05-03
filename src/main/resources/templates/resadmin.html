@@ -34,17 +34,19 @@
                 <td class="p_data">Data</td>
                 <td class="p_godzina">Godzina</td>
                 <td class="p_miejsce">Miejsce</td>
+                <td class="p_typ">Typ</td>
                 <td class="p_ilosc">Liczba dzieci</td>
                 <td class="delet_button"></td>
             </tr>
-            <tr class="event-info">
-                <td class="p_email"><p th:text="${userEmail}"/></td>
-                <td class="p_telefon"><p th:text="${userPhone}"/></td>
-                <td class="p_data"><p th:text="${eventDate}"/></td>
-                <td class="p_godzina"><p th:text="${eventHour}"/></td>
-                <td class="p_miejsce"><p th:text="${eventPlace}"/></td>
-                <td class="p_ilosc"><p th:text="${numberOfChildren}"/></td>
-                <td class="delet_button"><button>Usuń</button></td>
+            <tr th:each="reservation: ${resList}">
+                    <td th:text="${reservation.getUser_id().getEmail()}"/>
+                    <td th:text="${reservation.getUser_id().getPhoneNumber()}"/>
+                    <td th:text="${reservation.getDate()}"/>
+                    <td th:text="${reservation.getHour()}"/>
+                    <td th:text="${reservation.getPlace()}"/>
+                    <td th:text="${reservation.getCategory_id().getName()}"/>
+                    <td th:text="${reservation.getCategory_id().getNumber_of_children()}"/>
+                    <td class="delet_button"><button type="submit">Usuń</button></td>
             </tr>
 
         </table>

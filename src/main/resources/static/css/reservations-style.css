@@ -47,6 +47,13 @@ select {
 p3 {
     font: normal normal normal 15px/10px Arial;
     color: black;
-    margin: 1em;
+    margin: 3.5em;
+}
+form {
+    width: 50vw;
+    height: 55vh;
+}
+#save {
+    width: 25vw;
 }
 
