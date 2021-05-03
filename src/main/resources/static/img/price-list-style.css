@@ -1,6 +1,6 @@
 table, tr, td {
     border: 3px solid #a91304;
-    font: normal normal normal 35px/10px Kristen ITC;
+    font: normal normal normal 25px/10px Kristen ITC;
     color: #d21404;
 }
 table {
@@ -17,8 +17,8 @@ table {
     justify-content: center;
 }
 td {
-    padding: 70px;
+    padding: 30px;
 }
 #row-1>td {
-    padding: 50px 0px;
+    padding: 50px 10px;
 }

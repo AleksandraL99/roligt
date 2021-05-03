@@ -1,31 +1,33 @@
-package pl.roligt.roligt.databaseFiles;
+package pl.roligt.roligt.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity
-public class UsersTable {
+@Table(name="users")
+@Entity(name="users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user_id")
+    private List<Reservation> reservations;
 
 
 
     private String email;
     private String password;
-    private int phone_number;
+    private int phoneNumber;
     private String status;
 
-    public UsersTable(Long user_id, String email, String password, int phone_number, String status) {
+    public User(Long user_id, String email, String password, int phoneNumber, String status) {
         this.user_id = user_id;
         this.email = email;
         this.password = password;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.status = status;
     }
-    public UsersTable() {
+    public User() {
     }
 
     public Long getUser_id() {
@@ -52,12 +54,12 @@ public class UsersTable {
         this.password = password;
     }
 
-    public int getPhone_number() {
-        return phone_number;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(int phone_number) {
+        this.phoneNumber = phone_number;
     }
 
     public String getStatus() {
@@ -70,8 +72,12 @@ public class UsersTable {
 
     @Override
     public String toString() {
-        return String.format(
-                "User[id=%d, email='%s', phone_number='%d', status='%s']",
-                user_id, email, phone_number, status);
+        return "User{" +
+                "user_id=" + user_id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

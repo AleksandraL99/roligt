@@ -1,10 +1,10 @@
-package pl.roligt.roligt.Controllers;
+package pl.roligt.roligt.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class mainPageController {
+public class MainPageController {
 
     @GetMapping("/main")
     public String getMain() {

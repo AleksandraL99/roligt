@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new InMemoryUserDetailsManager(admin, user);
     }
 
-    @Override
+    /*@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/main").hasRole("ADMIN")
@@ -37,6 +37,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().permitAll()
                 .and()
                 .logout().permitAll();
+    }*/
+    @Override
+    protected void configure(final HttpSecurity http) throws Exception {
+        http
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/main");
     }
 }
 
