@@ -13,10 +13,10 @@
     </div>
     <div class="input_container">
         <form th:action="@{/add-user}" th:object="${newUser}" method="post">
-            <input name="email" type="text" placeholder="  Email"  th:field="*{email}">
-            <input name="password" type="password" placeholder="  Hasło"  th:field="*{password}">
+            <input name="email" type="text" placeholder="  Email">
+            <input name="password" type="password" placeholder="  Hasło">
             <input name="confirmedPassword" type="password" placeholder="  Powtórz hasło">
-            <input name="phone" type="text" placeholder="  Telefon"  th:field="*{phoneNumber}">
+            <input name="phone" type="text" placeholder="  Telefon">
             <div class="button-container">
                 <a href="login"><button type="button">Zarejestruj</button></a>
             </div>
