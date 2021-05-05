@@ -29,21 +29,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /*@Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/main").hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().permitAll()
-                .and()
-                .logout().permitAll();
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+		.antMatchers("/", "/register", "/main", "/rosnotlog","/priceList").permitAll()
+		.antMatchers("/resadmin").hasRole("ADMIN")
+		.antMatchers("/reservations").hasRole("USER")
+		.anyRequest().authenticated()
+		.formLogin()
+			.loginPage("/loginpage")
+			.defaultSuccessUrl("/")
+			.and()
+		.logout()
+			.logoutSuccessUrl("/")
     }*/
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/loginpage", "/register", "/main", "/rosnotlog","/priceList").permitAll()
+                .antMatchers("/resadmin").authenticated()
+                .and()
                 .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login")
+                .loginPage("/loginpage")
+                .failureUrl("/login-error")
                 .and()
                 .logout()
                 .logoutSuccessUrl("/main");

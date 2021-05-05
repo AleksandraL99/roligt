@@ -39,4 +39,7 @@ public class ReservationsController {
         return "redirect:/reservations";
     }
 
+    @GetMapping("/resnotlog")
+    public String getResNotLog() {return "resnotlog";
+    }
 }

@@ -54,4 +54,7 @@ input {
     font: normal normal normal 200px/60px Kristen ITC;
     margin: 0.25em;
 }
+#error-message {
+    font: normal normal normal 30px/10px Arial;
+}
 

@@ -15,7 +15,6 @@ public class LoginAndRegistrationService {
     }
 
     public boolean login(String email, String password) {
-        //exist do sprawdzenia czy użyszkodnik istnieje
-        return true;
+        return userRepo.existsByEmailAndPassword(email, password);
     }
 }
