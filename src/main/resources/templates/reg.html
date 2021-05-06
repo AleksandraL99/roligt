@@ -12,13 +12,18 @@
         <p id="logo_lettering">Roligt</p>
     </div>
     <div class="input_container">
+        <p id='error-email-message' th:if="${loginError1}" class="error">Niepoprawny adres email lub już znajduje
+            się on w bazie.</p>
+        <p id='error-password-message' th:if="${loginError2}" class="error">Niepoprawne hasło lub jego powtórzenie.
+            Pamiętaj aby miało przynajmniej 8 znaków.</p>
+        <p id='error-phone-message' th:if="${loginError3}" class="error">Niepoprawny numer telefonu</p>
         <form th:action="@{/add-user}" th:object="${newUser}" method="post">
             <input name="email" type="text" placeholder="  Email">
             <input name="password" type="password" placeholder="  Hasło">
             <input name="confirmedPassword" type="password" placeholder="  Powtórz hasło">
             <input name="phone" type="text" placeholder="  Telefon">
             <div class="button-container">
-                <a href="login"><button type="button">Zarejestruj</button></a>
+                <a href="loginpage"><button type="sumbit">Zarejestruj</button></a>
             </div>
         </form>
     </div>
