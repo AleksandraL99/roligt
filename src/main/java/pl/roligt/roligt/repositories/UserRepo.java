@@ -6,5 +6,11 @@ import pl.roligt.roligt.models.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
+    boolean existsByEmailAndPassword(String email, String password);
+
+    User findUserByEmail(String email);
+
+    @Override
+    User save(User entity);
 }
 

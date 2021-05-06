@@ -41,8 +41,13 @@
                 <form th:action="@{/add}" th:object="${newReservation}" method="post">
                     <input name="date" type="text" placeholder="DD.MM.YYYY" th:field="*{date}">
                     <input name="hour" type="text" placeholder="GG:MM" th:field="*{hour}">
-                    <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu">
-                    <input name="children" type="text" placeholder="1-20">
+                    <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu" th:field="*{place}">
+                    <input name="children" type="text" placeholder="1-20" th:field="*{children}">
+                    <select>
+                        <option value="10">Do 10 dzieci</option>
+                        <option value="15">Do 15 dzieci</option>
+                        <option value="20">Do 20 dzieci</option>
+                    </select>
                     <select>
                         <option value="Grupa przedszkolna">Grupa przedszkolna</option>
                         <option value="Urodziny">Urodziny</option>

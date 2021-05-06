@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/nav-style.css">
+    <link rel="stylesheet" type="text/css" href="./css/general-style.css">
+    <link rel="stylesheet" type="text/css" href="./css/reservations-style.css">
     <title>Reservation page for not logged users</title>
 </head>
 <body>
 <div class="container">
     <nav>
-        <img src="src/resources/img/logo.svg">
+        <p id="nav_logo">Roligt</p>
         <ul>
             <li>
                 <a href="main" class="button"><p1>Strona główna</p1></a>
@@ -24,9 +27,9 @@
         </ul>
     </nav>
 
-    <div name="notlog-container">
-        <p2>Opcja dostępna tylko dla zalogowanych użytkowników</p2>
-        <a href="login">Zaloguj</a>
+    <div id="notlog-container">
+        <p2>Opcja tylko dla zalogowanych</p2>
+        <button>Zaloguj</button>
     </div>
 </div>
 </body>

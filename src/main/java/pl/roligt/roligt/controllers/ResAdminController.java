@@ -22,18 +22,7 @@ public class ResAdminController {
 
     @GetMapping("/resadmin")
     public String getResAdmin(Model model) {
-        //wyrzucić z zmiennej zmienn.email np
         List<Reservation> resList = reservationsRepo.findAll();
-        //liste wrzucam gotową, pętla w html
-        /*model.addAttribute("userEmail","anowak@gmail.com");
-        model.addAttribute("userPhone","987354213");
-        model.addAttribute("eventDate","12-06-2021");
-        model.addAttribute("eventHour","13:30");
-        model.addAttribute("eventPlace","Kraków, Kolorowa,48");
-        model.addAttribute("numberOfChildren","12");
-        for (Reservation i: resList) {
-            System.out.println(i+"\n");
-        }*/
         model.addAttribute("resList", resList);
         return "resadmin";
     }

@@ -20,12 +20,12 @@ public class User {
     private int phoneNumber;
     private String status;
 
-    public User(Long user_id, String email, String password, int phoneNumber, String status) {
+    public User(String email, String password, int phoneNumber) {
         this.user_id = user_id;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.status = status;
+        this.status = "USER";
     }
     public User() {
     }

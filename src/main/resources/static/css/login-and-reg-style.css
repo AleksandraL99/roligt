@@ -47,11 +47,19 @@ input {
     display: flex;
     flex-direction: column;
 }
-.input_container>input {
+.input_container>form>input {
     margin: 0.5em;
 }
 .register_container>.logo>#logo_lettering {
     font: normal normal normal 200px/60px Kristen ITC;
     margin: 0.25em;
+}
+#error-message, #error-password-message, #error-email-message, #error-phone-message {
+    font: normal normal normal 20px/10px Arial;
+    color: black;
+    margin: 0.25em;
+}
+.logo {
+    margin: 1em;
 }
 

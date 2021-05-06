@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/login-and-reg-style.css">
@@ -6,18 +7,25 @@
     <title>Roligt</title>
 </head>
 <body>
-    <div id="login-container">
-        <div class="logo">
-            <p id="logo_lettering">Roligt</p>
-        </div>
-        <p>Email</p>
-        <input name="email" type="text" placeholder=" Wpisz email...">
-        <p>Hasło</p>
-        <input name="password" type="password" placeholder=" Wpisz haslo...">
-        <div id="button-container">
-            <a href="main"><button type="button">Zaloguj</button></a>
-            <a href="register"><button type="button">Zarejestruj</button></a>
-        </div>
+<div id="login-container">
+    <div class="logo">
+        <p id="logo_lettering">Roligt</p>
     </div>
+    <p id='error-message' th:if="${loginError}" class="error">Nieprawidłowy email lub hasło</p>
+    <form th:action="@{/login}" method="post">
+        <p>Email</p>
+        <input name="email" id="username" type="text" autofocus="autofocus" placeholder=" Wpisz email...">
+        <p>Hasło</p>
+        <input name="password" id="password" type="password" placeholder=" Wpisz haslo...">
+        <div id="button-container">
+            <a href="main">
+                <button type="submit">Zaloguj</button>
+            </a>
+        </div>
+    </form>
+    <a href="register">
+        <button type="submit">Zarejestruj</button>
+    </a>
+</div>
 </body>
 </html>
