@@ -6,19 +6,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.roligt.roligt.models.Reservation;
+import pl.roligt.roligt.models.User;
 import pl.roligt.roligt.repositories.ReservationsRepo;
+import pl.roligt.roligt.repositories.UserRepo;
+import pl.roligt.roligt.services.LoginAndRegistrationService;
+import pl.roligt.roligt.services.ReservationsService;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 @Controller
 public class ReservationsController {
     private List<Reservation> reservations;
-
+    private ReservationsService reservationsService;
     private ReservationsRepo reservationsRepo;
+
     @Autowired
-    public ReservationsController(ReservationsRepo reservationsRepo) {
+    public ReservationsController(ReservationsRepo reservationsRepo, ReservationsService reservationsService) {
         this.reservationsRepo = reservationsRepo;
+        this.reservationsService = reservationsService;
     }
 
 
@@ -34,9 +43,20 @@ public class ReservationsController {
     }
 
     @PostMapping("/add")
-    public  String addReservation(@RequestBody Reservation reservation) {
-        System.out.println(reservation);
-        return "redirect:/reservations";
+    public String addReservations(@RequestParam Integer day, @RequestParam Integer month, @RequestParam Integer year,
+                                  @RequestParam Integer hour, @RequestParam Integer minute, @RequestParam String place,
+                                  @RequestParam String children, @RequestParam String partyType, Model model) {
+        Date date = reservationsService.convertDate(day, month, year);
+        Time time = reservationsService.convertTime(hour, minute);
+
+        if(reservationsService.checkDate(date)) {
+            model.addAttribute("dateError", true);
+        } else {
+            model.addAttribute("correct", true);
+        }
+
+        //return"redirect:/reservations";
+        return  "reservations";
     }
 
     @GetMapping("/resnotlog")

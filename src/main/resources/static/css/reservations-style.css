@@ -47,7 +47,10 @@ select {
 p3 {
     font: normal normal normal 15px/10px Arial;
     color: black;
-    margin: 3.5em;
+    margin: 3em;
+}
+#reservation-page>p {
+    margin: 0;
 }
 form {
     width: 50vw;
@@ -67,5 +70,13 @@ form {
 #notlog-container>button {
     background: #a91304;
     color: white;
+}
+#choose-date>select {
+    width: 8vw;
+    margin-right: 0;
+}
+#choose-hour>select {
+    width: 12.5vw;
+    margin-right: 0;
 }
 
