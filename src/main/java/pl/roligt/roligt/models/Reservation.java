@@ -3,7 +3,6 @@ package pl.roligt.roligt.models;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
 
 @Table(name="reservations")
 @Entity(name="reservations")
@@ -19,7 +18,6 @@ public class Reservation {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id")
     private Category category_id;
-
 
     private Date date;
     private Time hour;

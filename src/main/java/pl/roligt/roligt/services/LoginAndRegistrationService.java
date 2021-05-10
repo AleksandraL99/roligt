@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 @Service
 public class LoginAndRegistrationService {
-    //musi sprawdzić czy użytkownik istnieje i jesli tak to dać mu token
     private UserRepo userRepo;
 
     @Autowired

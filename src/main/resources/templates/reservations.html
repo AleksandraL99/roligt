@@ -39,26 +39,45 @@
             </div>
             <div id="information">
                 <form th:action="@{/add}" th:object="${newReservation}" method="post">
-                    <input name="date" type="text" placeholder="DD.MM.YYYY" th:field="*{date}">
-                    <input name="hour" type="text" placeholder="GG:MM" th:field="*{hour}">
-                    <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu" th:field="*{place}">
-                    <input name="children" type="text" placeholder="1-20" th:field="*{children}">
-                    <select>
-                        <option value="10">Do 10 dzieci</option>
-                        <option value="15">Do 15 dzieci</option>
-                        <option value="20">Do 20 dzieci</option>
+                    <div id="choose-date">
+                        <select name="day">
+                            <option th:each="i : ${#numbers.sequence(1, 31)}" th:value="${i}" th:text="${i}"/>
+                        </select>
+                        <select name="month">
+                            <option th:each="i : ${#numbers.sequence(1, 12)}" th:value="${i}" th:text="${i}"/>
+                        </select>
+                        <select name="year">
+                            <option th:each="i : ${#numbers.sequence(2021, 2022)}" th:value="${i}" th:text="${i}"/>
+                        </select>
+                    </div>
+                    <div id="choose-hour">
+                        <select name="hour">
+                            <option th:each="i : ${#numbers.sequence(7, 19)}" th:value="${i}" th:text="${i}"/>
+                        </select>
+                        <select name="minute">
+                            <option value=0>00</option>
+                            <option value=30>30</option>
+                        </select>
+                    </div>
+                    <input name="place" type="text" placeholder="Miasto, Ulica, Nr domu">
+                    <select name="children">
+                        <option value=10>Do 10 dzieci</option>
+                        <option value=15>Do 15 dzieci</option>
+                        <option value=20>Do 20 dzieci</option>
                     </select>
-                    <select>
+                    <select name="partyType">
                         <option value="Grupa przedszkolna">Grupa przedszkolna</option>
                         <option value="Urodziny">Urodziny</option>
                         <option value="Impreza rodzinna">Impreza rodzinna</option>
                         <option value="Impreza specjalna">Impreza specjalna*</option>
                     </select>
-                    <input id="save" type="submit" value="Save">
+                    <input id="save" type="submit" value="Zarezerwuj">
                 </form>
             </div>
         </div>
         <p3>*impreza Hallowen, Powitanie Wiosny, Gwiazdkowa, Dzień dziecka</p3>
+        <p id='correct-message' th:if="${correct}">Poprawnie dodano rezerwacje.</p>
+        <p id='date-error-message' th:if="${dateError}" class="error">Ten termin jest niedostępny.</p>
     </div>
 
 </div>
