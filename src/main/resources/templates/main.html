@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="./css/nav-style.css">
     <link rel="stylesheet" type="text/css" href="./css/main-style.css">
@@ -21,22 +21,22 @@
                 <a href="priceList" class="button"> <p1>Cennik</p1></a>
             </li>
             <li>
-                <a href="login" class="button"><p1>Zaloguj</p1></a>
+                <a href="loginpage" class="button"><p1>Zaloguj</p1></a>
             </li>
         </ul>
     </nav>
 
     <div id="main-page">
         <div class="photos">
-            <img src="src/resources/img/obrazek.png">
-            <img src="src/resources/img/obrazek.png">
+            <img th:src="@{/img/img1.png}"/>
+            <img th:src="@{/img/img2.png}"/>
         </div>
         <div id="description">
-            <p>Lorem Ipsum</p>
+            <p>Lorem ipsum</p>
         </div>
         <div class="photos">
-            <img src="src/resources/img/obrazek.png">
-            <img src="src/resources/img/obrazek.png">
+            <img th:src="@{/img/img3.png}"/>
+            <img th:src="@{/img/img4.png}"/>
         </div>
     </div>
 </div>

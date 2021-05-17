@@ -21,7 +21,7 @@
                 <a href="priceList" class="button"> <p1>Cennik</p1></a>
             </li>
             <li>
-                <a href="login" class="button"><p1>Wyloguj</p1></a>
+                <a href="loginpage" class="button"><p1>Wyloguj</p1></a>
             </li>
         </ul>
     </nav>
@@ -46,7 +46,12 @@
                     <td th:text="${reservation.getPlace()}"/>
                     <td th:text="${reservation.getCategory_id().getName()}"/>
                     <td th:text="${reservation.getCategory_id().getNumber_of_children()}"/>
-                    <td class="delet_button"><button type="submit">Usuń</button></td>
+                    <td class="delete_button">
+                            <form th:action="@{/delete/{id}(id=${reservation.getReservation_id()})}" method="post">
+                                <button type="submit" value="Usuń"/>
+                            </form>
+                        </button>
+                    </td>
             </tr>
 
         </table>

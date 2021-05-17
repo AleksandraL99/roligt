@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/nav-style.css">
@@ -21,7 +21,7 @@
                 <a href="#" class="button"> <p1>Cennik</p1></a>
             </li>
             <li>
-                <a href="login" class="button"><p1>Zaloguj</p1></a>
+                <a href="loginpage" class="button"><p1>Zaloguj</p1></a>
             </li>
         </ul>
     </nav>
@@ -32,16 +32,20 @@
                 <td> </td> <td>0-10 dzieci</td> <td>11-15 dzieci</td> <td>16-20 dzieci</td>
             </tr>
             <tr>
-                <td>Grupa przedszkolna</td> <td>130zł</td> <td>170zł</td> <td>200zł</td>
+                <td th:text="${names[0]}"/>
+                <td th:text="${prices[0]}"/> <td th:text="${prices[1]}"/> <td th:text="${prices[2]}"/>
             </tr>
             <tr>
-                <td>Urodziny</td> <td>180zł</td> <td>210zł</td> <td>230zł</td>
+                <td th:text="${names[1]}"/>
+                <td th:text="${prices[3]}"/> <td th:text="${prices[4]}"/> <td th:text="${prices[5]}"/>
             </tr>
             <tr>
-                <td>Impreza rodzinna</td> <td>150zł</td> <td>190zł</td> <td>220zł</td>
+                <td th:text="${names[2]}"/>
+                <td th:text="${prices[6]}"/> <td th:text="${prices[7]}"/> <td th:text="${prices[8]}"/>
             </tr>
             <tr>
-                <td>Impreza specjalna</td> <td>160zł</td> <td>200zł</td> <td>220zł</td>
+                <td th:text="${names[3]}"/>
+                <td th:text="${prices[9]}"/> <td th:text="${prices[10]}"/> <td th:text="${prices[11]}"/>
             </tr>
         </table>
     </div>

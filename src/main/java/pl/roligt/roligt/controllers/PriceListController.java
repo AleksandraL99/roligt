@@ -23,7 +23,17 @@ public class PriceListController {
     @GetMapping("/priceList")
     public String getReservations(Model model) {
         List<Category> categoryList = categoryRepo.findAll();
-        model.addAttribute("categoryList", categoryList);
+
+        String[] names = { categoryList.get(1).getName(), categoryList.get(4).getName(), categoryList.get(7).getName(),
+                categoryList.get(10).getName() };
+
+        String[] prices = new String[12];
+
+        for(int i=0;i<categoryList.size();i++) {
+            prices[i] = categoryList.get(i).getPrice()+"zł";
+        }
+        model.addAttribute("names", names);
+        model.addAttribute("prices", prices);
         return "priceList";
     }
 }

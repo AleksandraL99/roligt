@@ -18,10 +18,7 @@ public class LoginAndRegistrationService {
     }
 
     public boolean checkEmail(String email) {
-        if(userRepo.findUserByEmail(email)==null)
-            return false;
-        else
-            return true;
+        return (userRepo.findUserByEmail(email)!=null);
     }
     public boolean login(String email, String password) {
         return userRepo.existsByEmailAndPassword(email, password);

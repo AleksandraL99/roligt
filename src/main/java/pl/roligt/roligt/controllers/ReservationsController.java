@@ -5,13 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.roligt.roligt.models.Reservation;
-import pl.roligt.roligt.models.User;
 import pl.roligt.roligt.repositories.ReservationsRepo;
-import pl.roligt.roligt.repositories.UserRepo;
-import pl.roligt.roligt.services.LoginAndRegistrationService;
 import pl.roligt.roligt.services.ReservationsService;
 
 import java.sql.Date;
@@ -52,10 +48,12 @@ public class ReservationsController {
         if(reservationsService.checkDate(date)) {
             model.addAttribute("dateError", true);
         } else {
+            Long categoryNumber = reservationsService.getNumberOfCategory(partyType, children);
             model.addAttribute("correct", true);
+            System.out.println("Kategoria: "+categoryNumber);
+        //    Reservation reservation = new Reservation(1, date, time, place, categoryNumber)
         }
-
-        //return"redirect:/reservations";
+        //return"redirect:/reservations";, jak przekazać z modelem?
         return  "reservations";
     }
 
