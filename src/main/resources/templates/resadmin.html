@@ -48,7 +48,7 @@
                     <td th:text="${reservation.getCategory_id().getNumber_of_children()}"/>
                     <td class="delete_button">
                             <form th:action="@{/delete/{id}(id=${reservation.getReservation_id()})}" method="post">
-                                <button type="submit" value="Usuń"/>
+                                <button type="submit">Usuń</button>
                             </form>
                         </button>
                     </td>

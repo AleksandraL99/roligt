@@ -4,10 +4,10 @@ table, tr, td {
     color: #000000;
 }
 #table-header {
-    font: normal normal normal 20px/10px Kristen ITC;
+    font: 20px/10px Kristen ITC;
 }
 .event-info {
-    font: normal normal normal 20px/10px Arial;
+    font: 20px/10px Arial;
 }
 table {
     width: 86vw;

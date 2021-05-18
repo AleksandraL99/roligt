@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.roligt.roligt.repositories.CategoryRepo;
 import pl.roligt.roligt.repositories.ReservationsRepo;
+import pl.roligt.roligt.repositories.UserRepo;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -12,11 +13,13 @@ import java.sql.Time;
 public class ReservationsService {
     private ReservationsRepo reservationsRepo;
     private CategoryRepo categoryRepo;
+    private UserRepo userRepo;
 
     @Autowired
-    public ReservationsService(ReservationsRepo reservationsRepo, CategoryRepo categoryRepo) {
+    public ReservationsService(ReservationsRepo reservationsRepo, CategoryRepo categoryRepo, UserRepo userRepo) {
         this.reservationsRepo = reservationsRepo;
         this.categoryRepo = categoryRepo;
+        this.userRepo = userRepo;
     }
 
     public boolean checkDate(Date date) {
@@ -49,6 +52,14 @@ public class ReservationsService {
 
     public void deleteRecord (Long id) {
         reservationsRepo.deleteById(id);
+    }
+
+    public String getRole( String mail) {
+        System.out.println(userRepo.findUserByEmail(mail).getStatus());
+        //TODO dlaczego wyrzuca NOTa?
+        if(userRepo.findUserByEmail(mail).getStatus()==null)
+            return "NOT";
+        else return userRepo.findUserByEmail(mail).getStatus();
     }
 
 }

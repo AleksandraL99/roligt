@@ -1,21 +1,20 @@
+#reservation-page, #form, #notlog-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #reservation-page {
     width: 100vw;
     height: 88vh;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 #title {
     color: #d21404;
-    font: normal normal normal 55px/20px Kristen ITC;
+    font: 55px/20px Kristen ITC;
 }
 #form {
     height: 60vh;
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
 }
 #information, #tips {
     display: flex;
@@ -31,21 +30,21 @@ input, select {
     height: 5vh;
     background: white;
     border-radius: 50px;
-    font: normal normal normal 25px/10px Kristen ITC;
+    font: 25px/10px Kristen ITC;
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 p2 {
     padding: 30px 10px;
-    font: normal normal normal 35px/20px Kristen ITC;
+    font: 35px/20px Kristen ITC;
 }
 select {
     height: 8vh;
     width: 26.5vw;
 }
 p3 {
-    font: normal normal normal 15px/10px Arial;
+    font: 15px/10px Arial;
     color: black;
     margin: 3em;
 }
@@ -62,10 +61,7 @@ form {
 #notlog-container {
     width: 100vw;
     height: 50vh;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 #notlog-container>button {
     background: #a91304;

@@ -12,5 +12,6 @@ public interface UserRepo extends JpaRepository<User, Long> {
 
     @Override
     User save(User entity);
+
 }
 

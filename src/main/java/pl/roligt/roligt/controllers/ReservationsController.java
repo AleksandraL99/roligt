@@ -53,11 +53,17 @@ public class ReservationsController {
             System.out.println("Kategoria: "+categoryNumber);
         //    Reservation reservation = new Reservation(1, date, time, place, categoryNumber)
         }
-        //return"redirect:/reservations";, jak przekazać z modelem?
+        //TODO return"redirect:/reservations";, jak przekazać z modelem?
         return  "reservations";
     }
 
     @GetMapping("/resnotlog")
-    public String getResNotLog() {return "resnotlog";
+    public String getResNotLog() {//TODO zmienić na mail
+        if(reservationsService.getRole("aa@a.a") == "ADMIN")
+            return "redirect:/resadmin";
+        else if(reservationsService.getRole("aa@a.a") == "USER")
+            return "redirect:/reservations";
+        else
+            return "resnotlog";
     }
 }
