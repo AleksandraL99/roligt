@@ -8,17 +8,17 @@
 }
 
 p {
-    font: 50px/20px Kristen ITC;
+    font: 100px/20px Kristen ITC;
     color: #d21404;
     margin: 0.75em;
 }
 
 input {
     background: #d21404;
-    width: 30vw;
-    height: 8vh;
+    width: 35vw;
+    height: 10vh;
     border-radius: 50px;
-    font: 25px/10px Kristen ITC;
+    font: 75px/10px Kristen ITC;
     border: 0px;
 }
 ::placeholder {
@@ -31,7 +31,7 @@ input {
     align-items: center;
     justify-content: center;
 }
-#button-container {
+.button-container {
     height: 10vh;
     width: 35vw;
     margin: 1vh;
@@ -48,15 +48,52 @@ input {
     margin: 0.5em;
 }
 .register_container>.logo>#logo_lettering {
-    font: 200px/60px Kristen ITC;
     margin: 0.25em;
 }
 #error-message, #error-password-message, #error-email-message, #error-phone-message {
-    font: 20px/10px Arial;
+    font: 40px/10px Arial;
     color: black;
     margin: 0.25em;
 }
 .logo {
-    margin: 1em;
+    margin: 1em 20em;
+}
+
+@media only screen and (max-device-width: 420px) {
+    #logo_lettering, .register_container>.logo>#logo_lettering {
+        font: 180px/50px Kristen ITC;
+    }
+    input {
+        width: 80vw;
+        height: 10vh;
+        font: 55px/10px Kristen ITC;
+    }
+    .button-container {
+        height: 10vh;
+        width: 80vw;
+    }
+    button {
+        font: 50px/10px Kristen ITC;
+        height: 10vh;
+        width: 70vw;
+    }
+    .button-container, .register_container {
+        display: flex;
+        flex-direction: column;
+    }
+    #error-message, #error-password-message, #error-email-message, #error-phone-message {
+        font: 35px/10px Arial;
+        margin: 0.75em;
+    }
+    .button-container>a>button {
+        width: 75vw;
+    }
+    .input_container>form {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+    }
 }
 

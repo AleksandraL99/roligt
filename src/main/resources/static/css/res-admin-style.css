@@ -3,11 +3,11 @@ table, tr, td {
 
     color: #000000;
 }
-#table-header {
-    font: 20px/10px Kristen ITC;
+td, .delete_button>form>button {
+    font: 50px/10px Arial;
 }
-.event-info {
-    font: 20px/10px Arial;
+#table-header>td {
+    font: 80px/10px Kristen ITC;
 }
 table {
     width: 86vw;
@@ -20,7 +20,7 @@ td {
     height: 7vh;
     padding: 0px 0.5em;
 }
-.delet_button, button {
+#empty-button, button {
     height: 7vh;
     width: 5vw;
     padding: 0px;
@@ -30,4 +30,7 @@ button{
     background: #d21404;
     border: 0px;
     color: white;
+}
+nav>p{
+    padding: 0.4em 0;
 }

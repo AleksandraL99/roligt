@@ -50,10 +50,8 @@ public class ReservationsController {
         } else {
             Long categoryNumber = reservationsService.getNumberOfCategory(partyType, children);
             model.addAttribute("correct", true);
-            System.out.println("Kategoria: "+categoryNumber);
         //    Reservation reservation = new Reservation(1, date, time, place, categoryNumber)
         }
-        //TODO return"redirect:/reservations";, jak przekazać z modelem?
         return  "reservations";
     }
 
@@ -63,7 +61,6 @@ public class ReservationsController {
             return "redirect:/resadmin";
         else if(reservationsService.getRole("aa@a.a") == "USER")
             return "redirect:/reservations";
-        else
-            return "resnotlog";
+        return "resnotlog";
     }
 }

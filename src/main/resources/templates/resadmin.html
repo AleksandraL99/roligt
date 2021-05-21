@@ -15,7 +15,7 @@
                 <a href="main" class="button"><p1>Strona główna</p1></a>
             </li>
             <li>
-                <a href="#" class="button">  <p1>Rezerwacje</p1></a>
+                <a href="resnotlog" class="button">  <p1>Rezerwacje</p1></a>
             </li>
             <li>
                 <a href="priceList" class="button"> <p1>Cennik</p1></a>
@@ -36,7 +36,7 @@
                 <td class="p_miejsce">Miejsce</td>
                 <td class="p_typ">Typ</td>
                 <td class="p_ilosc">Liczba dzieci</td>
-                <td class="delet_button"></td>
+                <td id="empty-button"></td>
             </tr>
             <tr th:each="reservation: ${resList}">
                     <td th:text="${reservation.getUser_id().getEmail()}"/>

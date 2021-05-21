@@ -30,7 +30,7 @@ ul {
 }
 li {
     width: 18vw;
-    font: 30px/10px Kristen ITC;
+    font: 70px/10px Kristen ITC;
     margin: auto;
     padding: 0px;
     background: white;
@@ -38,7 +38,7 @@ li {
 }
 
 #nav_logo {
-    font: 50px/5px Kristen ITC;
+    font: 180px/5px Kristen ITC;
     background: #d21404;
     color: white;
     margin: 50px 40px;
@@ -47,4 +47,12 @@ li {
 body {
     margin: 0px;
 }
-
+@media only screen and (max-device-width: 420px) {
+    #nav_logo {
+        display: none;
+    }
+    li {
+        width: 23vw;
+        font: 40px/5px Kristen ITC;
+    }
+}
