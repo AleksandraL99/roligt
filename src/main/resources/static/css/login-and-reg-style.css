@@ -61,7 +61,7 @@ input {
 
 @media only screen and (max-device-width: 420px) {
     #logo_lettering, .register_container>.logo>#logo_lettering {
-        font: 180px/50px Kristen ITC;
+        
     }
     input {
         width: 80vw;

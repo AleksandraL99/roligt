@@ -1,6 +1,8 @@
 package pl.roligt.roligt.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import pl.roligt.roligt.models.Reservation;
 import pl.roligt.roligt.repositories.ReservationsRepo;
 import pl.roligt.roligt.services.ReservationsService;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -33,6 +36,8 @@ public class ReservationsController {
 
     @GetMapping("/reservations")
     public String getReservations(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth.getName());
         model.addAttribute("reservations", reservations);
         model.addAttribute("newReservation", new Reservation());
         return "reservations";
@@ -56,10 +61,12 @@ public class ReservationsController {
     }
 
     @GetMapping("/resnotlog")
-    public String getResNotLog() {//TODO zmienić na mail
-        if(reservationsService.getRole("aa@a.a") == "ADMIN")
+    public String getResNotLog(HttpSession session) {
+        String mail = (String)session.getAttribute("username");
+        String role = reservationsService.getRole(mail);
+        if(role.equals("ADMIN"))
             return "redirect:/resadmin";
-        else if(reservationsService.getRole("aa@a.a") == "USER")
+        else if(role.equals("USER"))
             return "redirect:/reservations";
         return "resnotlog";
     }

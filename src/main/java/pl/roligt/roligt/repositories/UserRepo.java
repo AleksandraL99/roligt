@@ -5,10 +5,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import pl.roligt.roligt.models.User;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
 
-    User findUserByEmail(String email);
+    boolean existsByEmail(String email);
+
+    Optional<User> findUserByEmail(String email);
 
     @Override
     User save(User entity);

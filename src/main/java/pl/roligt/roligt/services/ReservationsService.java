@@ -1,7 +1,13 @@
 package pl.roligt.roligt.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.stereotype.Service;
+import pl.roligt.roligt.models.User;
 import pl.roligt.roligt.repositories.CategoryRepo;
 import pl.roligt.roligt.repositories.ReservationsRepo;
 import pl.roligt.roligt.repositories.UserRepo;
@@ -54,12 +60,13 @@ public class ReservationsService {
         reservationsRepo.deleteById(id);
     }
 
-    public String getRole( String mail) {
-        System.out.println(userRepo.findUserByEmail(mail).getStatus());
-        //TODO dlaczego wyrzuca NOTa?
-        if(userRepo.findUserByEmail(mail).getStatus()==null)
-            return "NOT";
-        else return userRepo.findUserByEmail(mail).getStatus();
+    public String getRole(String email) throws UsernameNotFoundException {
+       /* AnonymousAuthenticationToken auth = (AnonymousAuthenticationToken)SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth.getPrincipal()+" cr "+ auth.getCredentials()+" ti "+ auth.getDetails()+" is "+ auth.isAuthenticated() );
+        //User user = userRepo.findUserByEmail(mail).orElseThrow(()->new UsernameNotFoundException("Non user found"));
+        return "ADMIN";//user.getStatus();*/
+        User user = userRepo.findUserByEmail(email).orElseThrow(()->new UsernameNotFoundException("Non user found"));
+        return user.getStatus();
     }
 
 }

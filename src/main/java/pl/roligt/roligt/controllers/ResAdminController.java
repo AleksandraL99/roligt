@@ -11,6 +11,7 @@ import pl.roligt.roligt.models.Reservation;
 import pl.roligt.roligt.repositories.ReservationsRepo;
 import pl.roligt.roligt.services.ReservationsService;
 
+import java.security.Principal;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -28,7 +29,8 @@ public class ResAdminController {
     }
 
     @GetMapping("/resadmin")
-    public String getResAdmin(Model model) {
+    public String getResAdmin(Model model, Principal principal) {
+        System.out.println(principal.getName());
         List<Reservation> resList = reservationsRepo.findAll();
         model.addAttribute("resList", resList);
         return "resadmin";
