@@ -2,9 +2,8 @@ package pl.roligt.roligt.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,33 +28,21 @@ public class LoginAndRegistrationController {
 
     @Autowired
     public LoginAndRegistrationController(UserRepo userRepo, LoginAndRegistrationService loginAndRegistrationService,
-                                          PasswordEncoder passwordEncoder, AuthenticationManager auth) {
+                                          PasswordEncoder passwordEncoder,
+                                          AuthenticationManager auth) {
         this.userRepo = userRepo;
         this.loginAndRegistrationService = loginAndRegistrationService;
         this.passwordEncoder = passwordEncoder;
         this.auth = auth;
     }
 
-    private void authenticate(String username, String password) throws Exception {
-        Objects.requireNonNull(username);
-        Objects.requireNonNull(password);
-        try {
-            auth.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-        } catch (DisabledException e) {
-            throw new Exception("Użytkownik wyłączony!", e);
-        } catch (BadCredentialsException e) {
-            throw new Exception("Błędne dane logowania!", e);
-        }
-    }
-
     @PostMapping("/login")
-    public String getLogin(@RequestParam String email, @RequestParam String password, Model model, HttpSession session)
-            throws Exception {
-        //authenticate(email, password);
-        //auth.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+    public String getLogin(@RequestParam String email, @RequestParam String password, Model model, HttpSession session){
         String encodedPassword = userRepo.findPasswordByEmail(email);
+        System.out.println(encodedPassword + "\n" + password);
         if (passwordEncoder.matches(password, encodedPassword)) {
-            session.setAttribute("username", email );
+            session.setAttribute("username", email);
+            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(email, password));
             return "redirect:/main";
         } else {
             model.addAttribute("loginError", true);
@@ -66,7 +53,8 @@ public class LoginAndRegistrationController {
 
     @GetMapping("/loginpage")
     public String getLoginPage(HttpSession session) {
-        if(session.getAttribute("username") !=null) {
+        SecurityContextHolder.getContext().setAuthentication(null);
+        if (session.getAttribute("username") != null) {
             session.removeAttribute("username");
         }
         return "loginPage";
@@ -91,10 +79,11 @@ public class LoginAndRegistrationController {
             return "reg";
         }
         int phoneNumber = Integer.parseInt(phone);
-        password = passwordEncoder.encode(password);;
+        password = passwordEncoder.encode(password);
+
         User user = new User(email, password, phoneNumber);
         loginAndRegistrationService.saveUser(user);
         return "redirect:/loginPage";
-
+//TODO zmień zaloguj na wyloguj
     }
 }

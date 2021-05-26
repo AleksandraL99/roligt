@@ -37,6 +37,7 @@ public class ReservationsController {
     @GetMapping("/reservations")
     public String getReservations(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth.getPrincipal());
         System.out.println(auth.getName());
         model.addAttribute("reservations", reservations);
         model.addAttribute("newReservation", new Reservation());

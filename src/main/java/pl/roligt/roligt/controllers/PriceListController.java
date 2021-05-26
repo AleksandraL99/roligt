@@ -7,6 +7,7 @@ import pl.roligt.roligt.models.Category;
 import org.springframework.ui.Model;
 import pl.roligt.roligt.repositories.CategoryRepo;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -21,7 +22,7 @@ public class PriceListController {
     }
 
     @GetMapping("/priceList")
-    public String getReservations(Model model) {
+    public String getReservations(Model model, HttpSession session) {
         List<Category> categoryList = categoryRepo.findAll();
 
         String[] names = { categoryList.get(1).getName(), categoryList.get(4).getName(), categoryList.get(7).getName(),
@@ -32,6 +33,10 @@ public class PriceListController {
         for(int i=0;i<categoryList.size();i++) {
             prices[i] = categoryList.get(i).getPrice()+"zł";
         }
+        if(session.getAttribute("username") != null)
+            model.addAttribute("logged", true);
+        else
+            model.addAttribute("logged", false);
         model.addAttribute("names", names);
         model.addAttribute("prices", prices);
         return "priceList";

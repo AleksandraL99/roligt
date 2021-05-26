@@ -38,7 +38,6 @@ public class ResAdminController {
 
     @PostMapping("/delete/{id}")
     public String deleteReservation(@PathVariable String id, Model model) {
-        System.out.println("ID: "+id);
         long num = Long.parseLong(id);
         reservationsService.deleteRecord(num);
         return  "redirect:/resadmin";
