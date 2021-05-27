@@ -11,6 +11,7 @@ import pl.roligt.roligt.models.Reservation;
 import pl.roligt.roligt.repositories.ReservationsRepo;
 import pl.roligt.roligt.services.ReservationsService;
 
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.sql.Date;
 import java.sql.Time;
@@ -29,8 +30,11 @@ public class ResAdminController {
     }
 
     @GetMapping("/resadmin")
-    public String getResAdmin(Model model, Principal principal) {
-        System.out.println(principal.getName());
+    public String getResAdmin(Model model, Principal principal, HttpSession session) {
+        if(session.getAttribute("username") != null)
+            model.addAttribute("logged", true);
+        else
+            model.addAttribute("logged", false);
         List<Reservation> resList = reservationsRepo.findAll();
         model.addAttribute("resList", resList);
         return "resadmin";

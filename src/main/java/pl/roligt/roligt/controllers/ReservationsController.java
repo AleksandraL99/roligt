@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.roligt.roligt.models.Category;
 import pl.roligt.roligt.models.Reservation;
+import pl.roligt.roligt.models.User;
 import pl.roligt.roligt.repositories.ReservationsRepo;
 import pl.roligt.roligt.services.ReservationsService;
 
@@ -35,10 +37,12 @@ public class ReservationsController {
     }
 
     @GetMapping("/reservations")
-    public String getReservations(Model model) {
+    public String getReservations(Model model, HttpSession session) {
+        if (session.getAttribute("username") != null)
+            model.addAttribute("logged", true);
+        else
+            model.addAttribute("logged", false);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth.getPrincipal());
-        System.out.println(auth.getName());
         model.addAttribute("reservations", reservations);
         model.addAttribute("newReservation", new Reservation());
         return "reservations";
@@ -47,27 +51,32 @@ public class ReservationsController {
     @PostMapping("/add")
     public String addReservations(@RequestParam Integer day, @RequestParam Integer month, @RequestParam Integer year,
                                   @RequestParam Integer hour, @RequestParam Integer minute, @RequestParam String place,
-                                  @RequestParam String children, @RequestParam String partyType, Model model) {
+                                  @RequestParam String children, @RequestParam String partyType, Model model,
+                                  HttpSession session) {
         Date date = reservationsService.convertDate(day, month, year);
         Time time = reservationsService.convertTime(hour, minute);
 
-        if(reservationsService.checkDate(date)) {
+        if (reservationsService.checkDate(date)) {
             model.addAttribute("dateError", true);
         } else {
-            Long categoryNumber = reservationsService.getNumberOfCategory(partyType, children);
+            Category category = reservationsService.getCategory(partyType, children);
             model.addAttribute("correct", true);
-        //    Reservation reservation = new Reservation(1, date, time, place, categoryNumber)
+            User user = reservationsService.getUser((String)session.getAttribute("username"));
+            //todo zrobić dodawanie
+            Reservation reservation = new Reservation(user, date, time, place, category);
+            reservationsService.saveReservation(reservation);
         }
-        return  "reservations";
+        model.addAttribute("logged", true);
+        return "reservations";
     }
 
     @GetMapping("/resnotlog")
     public String getResNotLog(HttpSession session) {
-        String mail = (String)session.getAttribute("username");
+        String mail = (String) session.getAttribute("username");
         String role = reservationsService.getRole(mail);
-        if(role.equals("ADMIN"))
+        if (role.equals("ADMIN"))
             return "redirect:/resadmin";
-        else if(role.equals("USER"))
+        else if (role.equals("USER"))
             return "redirect:/reservations";
         return "resnotlog";
     }

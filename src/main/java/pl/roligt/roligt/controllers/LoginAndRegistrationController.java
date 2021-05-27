@@ -39,7 +39,6 @@ public class LoginAndRegistrationController {
     @PostMapping("/login")
     public String getLogin(@RequestParam String email, @RequestParam String password, Model model, HttpSession session){
         String encodedPassword = userRepo.findPasswordByEmail(email);
-        System.out.println(encodedPassword + "\n" + password);
         if (passwordEncoder.matches(password, encodedPassword)) {
             session.setAttribute("username", email);
             SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(email, password));
@@ -80,10 +79,8 @@ public class LoginAndRegistrationController {
         }
         int phoneNumber = Integer.parseInt(phone);
         password = passwordEncoder.encode(password);
-
         User user = new User(email, password, phoneNumber);
         loginAndRegistrationService.saveUser(user);
-        return "redirect:/loginPage";
-//TODO zmień zaloguj na wyloguj
+        return "redirect:/loginpage";
     }
 }

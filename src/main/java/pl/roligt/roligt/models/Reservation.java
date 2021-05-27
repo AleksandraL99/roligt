@@ -26,14 +26,14 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Long reservation_id, User user_id, Date date, Time hour, String place, Category id_category) {
-        this.reservation_id = reservation_id;
+    public Reservation( User user_id, Date date, Time hour, String place, Category id_category) {
         this.user_id = user_id;
         this.date = date;
         this.hour = hour;
         this.place = place;
         this.category_id = id_category;
     }
+
 
     public Long getReservation_id() {
         return reservation_id;

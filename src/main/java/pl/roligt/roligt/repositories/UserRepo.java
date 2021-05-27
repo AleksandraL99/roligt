@@ -23,4 +23,3 @@ public interface UserRepo extends JpaRepository<User, Long> {
     String findPasswordByEmail(String mail);
 
 }
-
