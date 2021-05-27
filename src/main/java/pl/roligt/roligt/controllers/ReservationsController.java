@@ -62,7 +62,6 @@ public class ReservationsController {
             Category category = reservationsService.getCategory(partyType, children);
             model.addAttribute("correct", true);
             User user = reservationsService.getUser((String)session.getAttribute("username"));
-            //todo zrobić dodawanie
             Reservation reservation = new Reservation(user, date, time, place, category);
             reservationsService.saveReservation(reservation);
         }

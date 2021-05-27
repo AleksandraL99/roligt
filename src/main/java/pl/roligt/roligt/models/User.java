@@ -35,21 +35,8 @@ public class User implements UserDetails {
     }
     public User() {
     }
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Long id) {
-        this.user_id = id;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override
@@ -86,24 +73,12 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phone_number) {
-        this.phoneNumber = phone_number;
-    }
-
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     @Override

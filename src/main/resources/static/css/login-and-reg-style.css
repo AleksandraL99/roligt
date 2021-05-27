@@ -61,7 +61,7 @@ input {
 
 @media only screen and (max-device-width: 420px) {
     #logo_lettering, .register_container>.logo>#logo_lettering {
-        
+        font-size: 180px;
     }
     input {
         width: 80vw;

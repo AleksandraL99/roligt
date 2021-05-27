@@ -1,11 +1,7 @@
 package pl.roligt.roligt.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.stereotype.Service;
 import pl.roligt.roligt.models.Category;
 import pl.roligt.roligt.models.Reservation;
@@ -32,11 +28,7 @@ public class ReservationsService {
 
     public boolean checkDate(Date date) {
         java.sql.Date systemDate = new java.sql.Date(System.currentTimeMillis());
-        if(reservationsRepo.existsByDate(date)==true || !date.after(systemDate)) {
-            return true;
-        }
-        else
-            return false;
+        return reservationsRepo.existsByDate(date) == true || !date.after(systemDate);
     }
 
     public Date convertDate(int day, int month, int year) {

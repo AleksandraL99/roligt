@@ -16,7 +16,6 @@ import pl.roligt.roligt.repositories.UserRepo;
 import pl.roligt.roligt.services.LoginAndRegistrationService;
 
 import javax.servlet.http.HttpSession;
-import java.util.Objects;
 
 
 @Controller
@@ -24,16 +23,12 @@ public class LoginAndRegistrationController {
     private UserRepo userRepo;
     private LoginAndRegistrationService loginAndRegistrationService;
     private final PasswordEncoder passwordEncoder;
-    private AuthenticationManager auth;
-
     @Autowired
     public LoginAndRegistrationController(UserRepo userRepo, LoginAndRegistrationService loginAndRegistrationService,
-                                          PasswordEncoder passwordEncoder,
-                                          AuthenticationManager auth) {
+                                          PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
         this.loginAndRegistrationService = loginAndRegistrationService;
         this.passwordEncoder = passwordEncoder;
-        this.auth = auth;
     }
 
     @PostMapping("/login")

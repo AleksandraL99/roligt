@@ -37,3 +37,21 @@
     line-height: 1.5em;
     margin: 1em;
 }
+@media only screen and (max-device-width: 420px) {
+  #main-page {
+      overflow: scroll;
+      flex-direction: column;
+  }
+    .photos {
+        width: 80vw;
+    }
+    .photos>img {
+        width: 80vw;
+    }
+    #description>p {
+        font-size: 50px;
+    }
+    #description {
+        width: 80vw;
+    }
+}
