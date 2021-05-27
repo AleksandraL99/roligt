@@ -15,13 +15,14 @@
                 <a href="main" class="button"><p1>Strona główna</p1></a>
             </li>
             <li>
-                <a href="#" class="button">  <p1>Rezerwacje</p1></a>
+                <a href="resnotlog" class="button">  <p1>Rezerwacje</p1></a>
             </li>
             <li>
                 <a href="priceList" class="button"> <p1>Cennik</p1></a>
             </li>
             <li>
-                <a href="login" class="button"><p1>Wyloguj</p1></a>
+                <a href="loginpage" th:if="${logged}" class="button"><p1>Wyloguj</p1></a>
+                <a href="loginpage" th:if="!${logged}" class="button"><p1>Zaloguj</p1></a></li>
             </li>
         </ul>
     </nav>
@@ -36,7 +37,7 @@
                 <td class="p_miejsce">Miejsce</td>
                 <td class="p_typ">Typ</td>
                 <td class="p_ilosc">Liczba dzieci</td>
-                <td class="delet_button"></td>
+                <td id="empty-button"></td>
             </tr>
             <tr th:each="reservation: ${resList}">
                     <td th:text="${reservation.getUser_id().getEmail()}"/>
@@ -46,7 +47,12 @@
                     <td th:text="${reservation.getPlace()}"/>
                     <td th:text="${reservation.getCategory_id().getName()}"/>
                     <td th:text="${reservation.getCategory_id().getNumber_of_children()}"/>
-                    <td class="delet_button"><button type="submit">Usuń</button></td>
+                    <td class="delete_button">
+                            <form th:action="@{/delete/{id}(id=${reservation.getReservation_id()})}" method="post">
+                                <button type="submit">Usuń</button>
+                            </form>
+                        </button>
+                    </td>
             </tr>
 
         </table>

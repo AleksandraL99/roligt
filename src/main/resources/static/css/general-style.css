@@ -1,7 +1,7 @@
 #logo_lettering {
     background: white;
     color: #d21404;
-    font: normal normal normal 90px/50px Kristen ITC;
+    font: 390px/50px Kristen ITC;
 }
 button, #save {
     height: 8vh;
@@ -9,7 +9,7 @@ button, #save {
     background: #d21404;
     color: white;
     border-radius: 30px;
-    font: normal normal normal 20px/10px Kristen ITC;
+    font: 70px/10px Kristen ITC;
     margin: 0.25em;
 }
 body {

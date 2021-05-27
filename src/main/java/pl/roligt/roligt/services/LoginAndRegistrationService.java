@@ -18,13 +18,7 @@ public class LoginAndRegistrationService {
     }
 
     public boolean checkEmail(String email) {
-        if(userRepo.findUserByEmail(email)==null)
-            return false;
-        else
-            return true;
-    }
-    public boolean login(String email, String password) {
-        return userRepo.existsByEmailAndPassword(email, password);
+        return userRepo.existsByEmail(email);
     }
 
     public void saveUser(User user) {
@@ -40,9 +34,7 @@ public class LoginAndRegistrationService {
     }
 
     public boolean checkPhone(String phone) {
-        if((phone.matches("\\d{9}")))
-            return true;
-        else
-            return false;
+        return (phone.matches("\\d{9}"));
     }
+
 }

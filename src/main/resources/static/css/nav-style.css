@@ -4,6 +4,11 @@ nav {
     background: #d21404 0% 0% no-repeat padding-box;
     display: flex;
 }
+a, main-page, ul, li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 a {
     height: 7vh;
     width: 20vw;
@@ -11,41 +16,29 @@ a {
     color: #d21404;
     text-decoration: none;
     line-height: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .container {
     width: 100vw;
     height: 100vh;
 }
 main-page {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 ul {
-    display: flex;
     flex-direction: row;
     margin: 1vw;
-    justify-content: center;
-    align-items: center;
 }
 li {
     width: 18vw;
-    font: normal normal normal 30px/10px Kristen ITC;
+    font: 70px/10px Kristen ITC;
     margin: auto;
     padding: 0px;
     background: white;
     margin: 1vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #nav_logo {
-    font: normal normal normal 50px/5px Kristen ITC;
+    font: 180px/5px Kristen ITC;
     background: #d21404;
     color: white;
     margin: 50px 40px;
@@ -54,4 +47,12 @@ li {
 body {
     margin: 0px;
 }
-
+@media only screen and (max-device-width: 420px) {
+    #nav_logo {
+        display: none;
+    }
+    li {
+        width: 23vw;
+        font: 40px/5px Kristen ITC;
+    }
+}

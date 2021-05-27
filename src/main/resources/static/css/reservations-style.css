@@ -1,21 +1,20 @@
+#reservation-page, #form, #notlog-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #reservation-page {
     width: 100vw;
     height: 88vh;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 #title {
     color: #d21404;
-    font: normal normal normal 55px/20px Kristen ITC;
+    font: 100px/20px Kristen ITC;
 }
 #form {
     height: 60vh;
-    display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
 }
 #information, #tips {
     display: flex;
@@ -31,26 +30,27 @@ input, select {
     height: 5vh;
     background: white;
     border-radius: 50px;
-    font: normal normal normal 25px/10px Kristen ITC;
+    font: 75px/10px Kristen ITC;
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 p2 {
-    padding: 30px 10px;
-    font: normal normal normal 35px/20px Kristen ITC;
+    padding: 1em 10px;
+    font: 85px/20px Kristen ITC;
 }
 select {
     height: 8vh;
     width: 26.5vw;
 }
 p3 {
-    font: normal normal normal 15px/10px Arial;
+    font: 45px/10px Arial;
     color: black;
     margin: 3em;
 }
 #reservation-page>p {
     margin: 0;
+    font: 35px/10px Arial;
 }
 form {
     width: 50vw;
@@ -62,14 +62,15 @@ form {
 #notlog-container {
     width: 100vw;
     height: 50vh;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
-#notlog-container>button {
+#notlog-container>a {
     background: #a91304;
     color: white;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 30px;
+    font: 85px/20px Kristen ITC;
 }
 #choose-date>select {
     width: 8vw;
@@ -78,5 +79,12 @@ form {
 #choose-hour>select {
     width: 12.5vw;
     margin-right: 0;
+}
+#nav_logo_notlog {
+    padding: 0.4em 0;
+    font: 180px/5px Kristen ITC;
+    background: #d21404;
+    color: white;
+    margin: 50px 40px;
 }
 

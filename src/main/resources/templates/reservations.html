@@ -16,13 +16,14 @@
                 <a href="main" class="button"><p1>Strona główna</p1></a>
             </li>
             <li>
-                <a href="#" class="button">  <p1>Rezerwacje</p1></a>
+                <a href="resnotlog" class="button">  <p1>Rezerwacje</p1></a>
             </li>
             <li>
                 <a href="priceList" class="button"> <p1>Cennik</p1></a>
             </li>
             <li>
-                <a href="logout" class="button"><p1>Zaloguj</p1></a>
+                <a href="loginpage" th:if="${logged}" class="button"><p1>Wyloguj</p1></a>
+                <a href="loginpage" th:if="!${logged}" class="button"><p1>Zaloguj</p1></a></li>
             </li>
         </ul>
     </nav>
@@ -36,6 +37,7 @@
                 <p2>Miejsce </p2>
                 <p2>Liczba dzieci </p2>
                 <p2>Kategoria</p2>
+                <p2> </p2><p2> </p2>
             </div>
             <div id="information">
                 <form th:action="@{/add}" th:object="${newReservation}" method="post">

@@ -13,8 +13,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>roligt</name>
 	<description>Project for ZTPAI</description>
+
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 	</properties>
 
 	<dependencies>
